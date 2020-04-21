@@ -3,7 +3,8 @@ const urlAPI = 'https://rickandmortyapi.com/api';
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			characters: []
+      characters: [],
+      active: undefined
 		},
 		actions: {
       loadCharacters: () => {
@@ -11,6 +12,13 @@ const getState = ({ getStore, getActions, setStore }) => {
         .then((data) => {
           console.log(data);
           getActions().setListCharacters(data.results);
+        })
+      },
+      loadCharacter: (id) => {
+        fetch(`${urlAPI}/character/${id}`).then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
+          setStore({ active: data });
         })
       },
       setListCharacters: (lista) => {

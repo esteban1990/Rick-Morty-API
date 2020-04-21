@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Home = () => {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
 
     return (
       <>
@@ -17,7 +17,9 @@ const Home = () => {
           {
             store.characters.map((item, index) => {
               return (
-                <li key={index}>{item.name}</li>
+                <li key={index}>
+                  <Link to={`/ejemplo/${item.id}`}>{item.name}</Link>
+                </li>
               )
             })
           }
