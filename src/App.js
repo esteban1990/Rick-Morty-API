@@ -2,6 +2,8 @@ import React from 'react';
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
+import injectContext from "./store/appContext";
+
 import Header from './components/Header'
 
 import Home from './views/Home'
@@ -22,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default injectContext(App);
