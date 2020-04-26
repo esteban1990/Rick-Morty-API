@@ -1,3 +1,4 @@
+
 import React from 'react'
 
 import { Link, withRouter } from "react-router-dom";
@@ -6,8 +7,9 @@ import { Link, withRouter } from "react-router-dom";
 const Header = () => {
   return (
     <header>
-      <Link to="/" >Home</Link>
-      <Link to="/ejemplo" >Ejemplo</Link>
+      <Link to="/" >Personajes</Link>
+      <Link to ="/ubicacion">Ubicaciones</Link>
+      <Link to ="/episode">Episodios</Link>
     </header>
   )
 }

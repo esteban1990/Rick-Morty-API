@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
-const Home = () => {
+const Home3 = () => {
   const { store } = useContext(Context);
 
     return (
       <>
-        <h2>Soy el Home de Personajes</h2>
-        <Link to="/personaje" >Soy el link</Link>
+        <h2>Soy el Home de Episodios</h2>
+        <Link to="/episode" >Soy el link</Link>
 
         <div>
           <ul className="list-group">
           {
-            store.characters.map((item, index) => {
+            store.episodes.map((item, index) => {
               return (
                 <li key={index}>
-                  <Link to={`/personaje/${item.id}`}>{item.name}</Link>
+                  <Link to={`/episode/${item.id}`}>{item.name}</Link>
                 </li>
               )
             })
@@ -29,4 +29,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Home3;

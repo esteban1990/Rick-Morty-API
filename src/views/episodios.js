@@ -4,22 +4,23 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
-const Example = (props) => {
+const Episodios = (props) => {
   console.log(props.match.params.id);
 
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
     if (props.match.params.id !== undefined) {
-      actions.loadCharacter(props.match.params.id)
+      actions.loadEpisode(props.match.params.id)
     }
-  }, []) // ESTE USEEFFECT ES PARA EVITAR EL LOOP, ES EQUIVALENTE A UN COMPONENTDIDMOUNT. LO MÀS IMPORTANTE SON LAS []
+  }
+  , []) // ESTE USEEFFECT ES PARA EVITAR EL LOOP, ES EQUIVALENTE A UN COMPONENTDIDMOUNT. LO MÀS IMPORTANTE SON LAS []
 
   return (
     <>
       {
-        store.active !== undefined ?
-        <h2>Soy el { store.active.name } and I am {store.active.status}</h2>
+        store.episodes!== null?
+      <h2>Soy el episodio{ store.episodes.episode} y mi nombre es  {store.episodes.name} </h2>
         : null
       }
       <Link to="/" >Soy el link</Link>
@@ -27,4 +28,4 @@ const Example = (props) => {
   )
 }
 
-export default Example;
+export default Episodios;
