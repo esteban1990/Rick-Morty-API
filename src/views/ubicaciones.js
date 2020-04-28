@@ -10,7 +10,7 @@ const Ubicaciones = (props) => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        if (props.match.params.id !== "") {
+        if (props.match.params.id !== null) {
             actions.loadLocation(props.match.params.id)
         }
     }
@@ -19,8 +19,8 @@ const Ubicaciones = (props) => {
     return (
         <>
            {
-        store.locations !== null ?
-        <h2>Me ubico en  { store.locations.name } y es de tipo {store.locations.type}</h2>
+        store.infoLocation !== undefined && store.infoLocation!== null ?
+        <h2>Me ubico en  { store.infoLocation.name } y es de tipo {store.infoLocation.type}</h2>
         : null
       }
       <Link to="/" >Soy el link</Link>
