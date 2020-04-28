@@ -10,7 +10,7 @@ const Episodios = (props) => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
-    if (props.match.params.id !== undefined) {
+    if (props.match.params.id !== null) {
       actions.loadEpisode(props.match.params.id)
     }
   }
@@ -19,8 +19,8 @@ const Episodios = (props) => {
   return (
     <>
       {
-        store.episodes!== null?
-      <h2>Soy el episodio{ store.episodes.episode} y mi nombre es  {store.episodes.name} </h2>
+        store.infoEpisode!== undefined && store.infoEpisode !== null ?
+      <h2>Soy el episodio{ store.infoEpisode.episode} y mi nombre es  {store.infoEpisode.name} </h2>
         : null
       }
       <Link to="/" >Soy el link</Link>
