@@ -7,7 +7,9 @@ const getState = ({ getStore, getActions, setStore }) => {
     store: {
       characters: [],
       locations: [],
+      infoLocation : null,
       episodes : [],
+      infoEpisode : null,
       active: undefined
 
     },
@@ -62,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
         .then(function(data){
           console.log(data)
-          setStore({locations : data}
+          setStore({infoLocation : data}
 
           )})
         },
@@ -88,7 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           })
           .then(function(data){
             console.log(data);
-            setStore({episodes : data})
+            setStore({infoEpisode : data})
           })
         }
 
